@@ -1,8 +1,8 @@
 /*
 int s[3][10] = {
-		{0,1,2,3,4}, //---------1Çà
-		{10,11,12,13,14}, //-------2Çà
-		{20,21,22,23,24} //------3Çà
+		{0,1,2,3,4}, //---------1í–‰
+		{10,11,12,13,14}, //-------2í–‰
+		{20,21,22,23,24} //------3í–‰
 };
 */
 
@@ -55,7 +55,7 @@ int main(void) {
 	{
 		double final_scores = a[i][0] * 0.3 + a[i][1] * 0.4 +
 			a[i][2] * 0.2 + a[i][3] * 0.1 - a[i][4];
-		printf("ÇĞ»ı #%iÀÇ ÃÖÁ¾ ¼ºÀû = %10.2f\n", i + 1, final_scores);
+		printf("í•™ìƒ #%iì˜ ìµœì¢… ì„±ì  = %10.2f\n", i + 1, final_scores);
 	}
 	return 0;
 }
@@ -106,7 +106,7 @@ int main(void)
 	int sales[YEARS][PRODUCTS] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
 	int total_sale;
 	total_sale = sum(sales);
-	printf("ÃÑ ¸ÅÃâÀº %dÀÔ´Ï´Ù.\n", total_sale);
+	printf("ì´ ë§¤ì¶œì€ %dì…ë‹ˆë‹¤.\n", total_sale);
 	return 0;
 }
 int sum(int grade[][PRODUCTS])
@@ -157,10 +157,10 @@ int main(void)
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1 },
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1 },
 	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 } };
-	printf("º¯È¯Àü ÀÌ¹ÌÁö\n");
+	printf("ë³€í™˜ì „ ì´ë¯¸ì§€\n");
 	display(image);
 	inverse(image);
-	printf("\n\nº¯È¯ÈÄ ÀÌ¹ÌÁö\n");
+	printf("\n\në³€í™˜í›„ ì´ë¯¸ì§€\n");
 	display(image);
 	return 0;
 }
@@ -173,14 +173,14 @@ int main(void)
 {
 	char board[3][3];
 	int x, y, k, i;
-	for (x = 0; x < 3; x++) // º¸µå ÃÊ±âÈ­
+	for (x = 0; x < 3; x++) // ë³´ë“œ ì´ˆê¸°í™”
 		for (y = 0; y < 3; y++)
 			board[x][y] = ' ';
-	// »ç¿ëÀÚ·ÎºÎÅÍ À§Ä¡¸¦ ¹Ş¾Æ¼­ º¸µå¿¡ Ç¥½Ã
+	// ì‚¬ìš©ìë¡œë¶€í„° ìœ„ì¹˜ë¥¼ ë°›ì•„ì„œ ë³´ë“œì— í‘œì‹œ
 	for (k = 0; k < 9; k++) {
-		printf("(x, y) ÁÂÇ¥: ");
+		printf("(x, y) ì¢Œí‘œ: ");
 		scanf(" %d %d", &x, &y);
-		board[x][y] = (k % 2 == 0) ? 'X' : 'O'; //¼ø¹ø¿¡ µû¶ó 'X', 'O'Áß
+		board[x][y] = (k % 2 == 0) ? 'X' : 'O'; //ìˆœë²ˆì— ë”°ë¼ 'X', 'O'ì¤‘
 		for (i = 0; i < 3; i++) {
 			printf("---|---|---\n");
 			printf("%c | %c | %c \n", board[i][0], board[i][1], board[i][2]);
@@ -188,5 +188,44 @@ int main(void)
 		printf("---|---|---\n");
 	}
 	return 0;
+}
+*/
+
+/*
+#include <stdio.h>
+int main()
+{
+	int A = 1004;
+	printf("%x", &A); //ì£¼ì†Œë¥¼ ì§€ì •í•  ë•ŒëŠ”  %x,%p ì‚¬ìš©í•¨.
+
+	return 0;
+}
+*/
+
+/*
+#include <stdio.h>
+int main()
+{
+	int i = 10;
+	char c = 69;
+	float f = 12.3;
+
+	printf("iì˜ ì£¼ì†ŒëŠ”: %u\n", &i);
+	printf("cì˜ ì£¼ì†ŒëŠ”: %u\n", &c);
+	printf("fì˜ ì£¼ì†ŒëŠ”: %u\n", &f);
+
+	return 0;
+}
+*/
+
+/*
+#include <stdio.h>
+int main()
+{
+	int i = 10;
+	int* p;
+	p = &i;
+
+	printf("%u, %u\n", p, &i);
 }
 */
