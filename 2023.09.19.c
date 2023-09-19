@@ -222,10 +222,10 @@ int main()
 #include <stdio.h>
 int main()
 {
-	int i = 10;
+	int A = 10;
 	int* p;
-	p = &i;
+	p = &A;
 
-	printf("%u, %u\n", p, &i);
+	printf("%u, %u\n", p, &A);
 }
 */
