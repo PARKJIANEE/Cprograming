@@ -41,7 +41,7 @@ int main(void)
 
 /*
 #include <stdio.h>
-// 0ºÎÅÍ 99±îÁöÀÇ ³­¼ö(½Ç¼ö ÇüÅÂ)¸¦ ¹ß»ıÇÏ¿© Å©±â°¡ 3ÀÎ ¹è¿­ p¿¡ ÀúÀåÇÑ´Ù.
+// 0ë¶€í„° 99ê¹Œì§€ì˜ ë‚œìˆ˜(ì‹¤ìˆ˜ í˜•íƒœ)ë¥¼ ë°œìƒí•˜ì—¬ í¬ê¸°ê°€ 3ì¸ ë°°ì—´ pì— ì €ì¥í•œë‹¤.
 void getSensorData(double* p)
 {
 	p[0] = rand() % 100;
@@ -53,9 +53,9 @@ int main(void)
 {
 	double sensorData[3];
 	getSensorData(sensorData);
-	printf("¿ŞÂÊ ¼¾¼­¿Í Àå¾Ö¹°°úÀÇ °Å¸®: %lf \n", sensorData[0]);
-	printf("Áß°£ ¼¾¼­¿Í Àå¾Ö¹°°úÀÇ °Å¸®: %lf \n", sensorData[1]);
-	printf("¿À¸¥ÂÊ ¼¾¼­¿Í Àå¾Ö¹°°úÀÇ °Å¸®: %lf \n", sensorData[2]);
+	printf("ì™¼ìª½ ì„¼ì„œì™€ ì¥ì• ë¬¼ê³¼ì˜ ê±°ë¦¬: %lf \n", sensorData[0]);
+	printf("ì¤‘ê°„ ì„¼ì„œì™€ ì¥ì• ë¬¼ê³¼ì˜ ê±°ë¦¬: %lf \n", sensorData[1]);
+	printf("ì˜¤ë¥¸ìª½ ì„¼ì„œì™€ ì¥ì• ë¬¼ê³¼ì˜ ê±°ë¦¬: %lf \n", sensorData[2]);
 	return 0;
 }
 */
@@ -118,11 +118,11 @@ int main()
 	char src[] = "The worst things to eat before you sleep";
 	char dst[100];
 	int i;
-	printf("¿øº» ¹®ÀÚ¿­=%s\n", src);
+	printf("ì›ë³¸ ë¬¸ìì—´=%s\n", src);
 	for (i = 0; src[i] != '\0'; i++)
 		dst[i] = src[i];
 	dst[i] = '\0';
-	printf("º¹»çµÈ ¹®ÀÚ¿­=%s\n", dst);
+	printf("ë³µì‚¬ëœ ë¬¸ìì—´=%s\n", dst);
 	return 0;
 }
 */
@@ -137,7 +137,7 @@ int main()
 	while (str[i] != 0)
 		i++;
 
-	printf("¹®ÀÚ¿­\"%s\"ÀÇ ±æÀÌ´Â %dÀÔ´Ï´Ù.\n", str, i);
+	printf("ë¬¸ìì—´\"%s\"ì˜ ê¸¸ì´ëŠ” %dì…ë‹ˆë‹¤.\n", str, i);
 
 	return 0;
 }
@@ -150,14 +150,14 @@ int main(void)
 	char src[] = "The worst things to eat before you sleep";
 	char dst[100];
 	int i;
-	printf("¿øº» ¹®ÀÚ¿­=%s\n", src);
+	printf("ì›ë³¸ ë¬¸ìì—´=%s\n", src);
 	for (i = 0; src[i] !='\0'; i++)
 		dst[i] = src[i];
 	dst[i] ='\0';
-	printf("º¹»çµÈ ¹®ÀÚ¿­=%s\n", dst);
-	while (src[i] != 0) //¹è¿­¸í src·Î ¼öÁ¤
+	printf("ë³µì‚¬ëœ ë¬¸ìì—´=%s\n", dst);
+	while (src[i] != 0) //ë°°ì—´ëª… srcë¡œ ìˆ˜ì •
 		i++;
-	printf("¹®ÀÚ¿­\"%s\"ÀÇ ±æÀÌ´Â %dÀÔ´Ï´Ù.\n", src, i);
+	printf("ë¬¸ìì—´\"%s\"ì˜ ê¸¸ì´ëŠ” %dì…ë‹ˆë‹¤.\n", src, i);
 	return 0;
 }
 */
@@ -166,7 +166,7 @@ int main(void)
 #include <stdio.h>
 int main()
 {
-	char* pmovies[20] = { "Á¾ÀÌ²É","´ãº¸","±ØÀåÆÇ ¿ä±«¿öÄ¡","ÇÁ·Ï½Ã¸¶ ÇÁ·ÎÁ§Æ®" };
+	char* pmovies[20] = { "ì¢…ì´ê½ƒ","ë‹´ë³´","ê·¹ì¥íŒ ìš”ê´´ì›Œì¹˜","í”„ë¡ì‹œë§ˆ í”„ë¡œì íŠ¸" };
 	for (i = 0; i < 4; i++);
 		printf("%s\n", pmovies[i]);
 
@@ -183,7 +183,7 @@ int main()
 		putchar(ch);
 
 	return 0;
-} // Á¾·áÇÒ ¶§ ctrl+Z
+} // ì¢…ë£Œí•  ë•Œ ctrl+Z
 */
 
 /*
@@ -205,13 +205,13 @@ int main()
 	char name[100];
 	char address[100];
 
-	printf("ÀÌ¸§À» ÀÔ·ÂÇÏ½Ã¿À: ");
+	printf("ì´ë¦„ì„ ì…ë ¥í•˜ì‹œì˜¤: ");
 
 	gets_s(name, 100);
-	printf("ÇöÀç °ÅÁÖÇÏ´Â ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ½Ã¿À: ");
+	printf("í˜„ì¬ ê±°ì£¼í•˜ëŠ” ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì‹œì˜¤: ");
 
 	gets_s(address, 100);
-	puts(name); //¶óÀÎÀ» ÀÚµ¿À¸·Î ¹Ù²Ş
+	puts(name); //ë¼ì¸ì„ ìë™ìœ¼ë¡œ ë°”ê¿ˆ
 	puts(address);
 
 	return 0;
@@ -241,7 +241,7 @@ int main(void) {
 int main()
 {
 	int length = strlen("Google&sungkyul");
-	printf("´Ü¾îÀÇ ±æÀÌ=%d\n", length);
+	printf("ë‹¨ì–´ì˜ ê¸¸ì´=%d\n", length);
 
 	return 0;
 }
