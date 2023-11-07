@@ -1,4 +1,4 @@
-/*//¿¹Á¦ 1.c
+/*//ì˜ˆì œ 1.c
 #include <stdio.h>
 int main()
 {
@@ -16,7 +16,7 @@ int main()
 }
 */
 
-/*//¿¬½À¹®Á¦
+/*//ì—°ìŠµë¬¸ì œ
 #include <stdio.h>
 int main()
 {
@@ -42,7 +42,7 @@ int main()
 	char *p;
 	set_pointer(p);
 
-	printf("¿À´ÃÀÇ °İ¾ğ: %s\n", p);
+	printf("ì˜¤ëŠ˜ì˜ ê²©ì–¸: %s\n", p);
 	return 0;
 }
 
@@ -107,17 +107,17 @@ int main()
 
 	pf = add;
 	result = pf(10, 20);
-	printf("10+20Àº %d\n", result);
+	printf("10+20ì€ %d\n", result);
 
 	pf = sub;
 	result = pf(10, 20);
-	printf("10-20Àº %d\n", result);
+	printf("10-20ì€ %d\n", result);
 
 	return 0;
 }
 */
 
-/*//fp1.c º¯Çü
+/*//fp1.c ë³€í˜•
 #include <stdio.h>
 int add(int x, int y)
 {
@@ -138,17 +138,17 @@ int main()
 
 	pf = add;
 	result = pf(10, 20);
-	printf("10+20Àº %d\n", result);
+	printf("10+20ì€ %d\n", result);
 
 	pf = div;
 	result = pf(10, 20);
-	printf("10/20Àº %d\n", result);
+	printf("10/20ì€ %d\n", result);
 	
 	return 0;
 }
 */
 
-/*//»çÄ¢¿¬»ê ÄÚµå
+/*//ì‚¬ì¹™ì—°ì‚° ì½”ë“œ
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 void menu();
@@ -178,11 +178,11 @@ int div(int x, int y)
 void menu()
 {
 	printf("=====================\n");
-	printf("0. µ¡¼À\n");
-	printf("1. »¬¼À\n");
-	printf("2. °ö¼À\n");
-	printf("3. ³ª´°¼À\n");
-	printf("4. Á¾·á\n");
+	printf("0. ë§ì…ˆ\n");
+	printf("1. ëº„ì…ˆ\n");
+	printf("2. ê³±ì…ˆ\n");
+	printf("3. ë‚˜ëˆ—ì…ˆ\n");
+	printf("4. ì¢…ë£Œ\n");
 	printf("=====================\n");
 }
 
@@ -194,22 +194,22 @@ int main()
 	while (1)
 	{
 		menu();
-		printf("¸Ş´º¸¦ ¼±ÅÃÇÏ½Ã¿À:");
+		printf("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì‹œì˜¤:");
 		scanf("%d", &choice);
 
 		if (choice < 0 || choice >= 4)
 			break;
-		printf("2°³ÀÇ Á¤¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À:");
+		printf("2ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤:");
 		scanf("%d %d", &x, &y);
 
 		result = pf[choice](x, y);
-		printf("¿¬»ê °á°ú=%d\n", result);
+		printf("ì—°ì‚° ê²°ê³¼=%d\n", result);
 	}
 	return 0;
 }
 */
 
-/*//ÇàÀÇ Æò±Õ
+/*//í–‰ì˜ í‰ê· 
 #include <stdio.h>
 #define ROWS 4
 #define COLS 3
@@ -232,9 +232,9 @@ double get_row_avg(int m[ROWS][COLS], int r)
 	endp = &m[r][COLS];
 
 	while (p < endp)
-		sum += *p++; // ÀÌ ºÎºĞ µÎÁÙ·Î ÇØº¸±â
+		sum += *p++; // ì´ ë¶€ë¶„ ë‘ì¤„ë¡œ í•´ë³´ê¸°
 
-	sum /= COLS; // Æò±Õ °è»ê
+	sum /= COLS; // í‰ê·  ê³„ì‚°
 	printf("subprogram total=%2.2lf\n", sum);
 
 	return sum;
@@ -258,52 +258,32 @@ double get_total_avg(int m[ROWS][COLS])
 }
 */
 
-/*// ¿­ÀÇ Æò±Õ ±¸ÇÏ±â ¹Ì¿Ï¼º
+/*// ì—´ì˜ í‰ê·  êµ¬í•˜ê¸°
+#include <stdio.h>
 #define ROWS 4
 #define COLS 3
 double get_col_avg(int m[ROWS][COLS], int c);
-double get_total_avg(int m[ROWS][COLS]);
 
 int main()
 {
 	int m[ROWS][COLS] = { {10,20,30},{10,20,30},{10,20,30},{10,20,30} };
-	double sum = get_col_avg(m, 2);
-	double total = get_total_avg(m);
+	double col_avg = get_col_avg(m, 2);
+	printf("ì—´ì˜ í‰ê· =%2.2lf\n", col_avg);
 
 	return 0;
 }
 
 double get_col_avg(int m[ROWS][COLS], int c)
 {
-	int *p, *endp;
 	double sum = 0.0;
 
-	p = &m[0][c];
-	endp = &m[ROWS][c];
+	for (int i = 0; i < ROWS; i++)
+	{
+		sum += m[i][c];
+	}
 
-	while (p < endp)
-		sum += *p++;
+	double col_avg = sum / ROWS;
 
-	sum /= ROWS;
-	printf("subprogram total=%2.2lf\n", sum);
-
-	return sum;
-}
-
-double get_total_avg(int m[ROWS][COLS])
-{
-	int* p, * endp;
-	double sum = 0.0;
-
-	p = &m[0][0];
-	endp = &m[ROWS][COLS - 1];
-
-	while (p < endp)
-		sum += *p++;
-
-	sum /= ROWS * COLS;
-	printf("subprogram total=%2.2lf\n", sum);
-
-	return sum;
+	return col_avg;
 }
 */
