@@ -43,42 +43,138 @@ int main()
 }
 */
 
-/*// before
+/*//before
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
+#include <time.h>
 #define SIZE 100
 
-struct QUESTION 
- {
+struct QUESTION {
     char question[SIZE];
     char item1[SIZE];
     char item2[SIZE];
     char item3[SIZE];
     char item4[SIZE];
-    int solution;  
+    int solution;
 };
 
-struct QUESTION bank[100] = {
-    {"임베디드 장치에 가장 적합한 프로그래밍 언어는?", "1. Python", "2. Java", "3. C", "4. Javascript", 3},
-    {"서로 다른 자료형을 모을 수 있는 구조는?", "1. 배열", "2. 변수", "3. 구조체", "4. 포인터", 3},
-};
+int main(void) {
+    struct QUESTION bank[100] = {
+        {"임베디드 장치에 가장 적합한 프로그래밍 언어는?", "1. Python", "2. Java", "3. C", "4. Javascript", 3},
+        {"서로 다른 자료형을 모을 수 있는 구조는?", "1. 배열", "2. 변수", "3. 구조체", "4. 포인터", 3},
+    };
 
-int main(void)
-{
-    int select, i;
-    for (i = 0; i < 2; i++) {
-        printf("%s\n", bank[i].question);
-        printf("%s    ", bank[i].item1);
-        printf("%s    ", bank[i].item2);
-        printf("%s    ", bank[i].item3);
-        printf("%s    ", bank[i].item4);
-        scanf("%d", &select);
-        if (select == bank[i].solution)
-            printf("맞았습니다.\n\n");
-        else
-            printf("틀렸습니다.\n\n");
+    int numQuestions = 2; 
+    int correctAnswers = 0; 
+    int* selectedQuestions = (int*)malloc(numQuestions * sizeof(int));
+    for (int i = 0; i < numQuestions; i++) {
+        selectedQuestions[i] = 0; 
     }
+
+    srand(time(0)); 
+
+    for (int i = 0; i < numQuestions; i++) {
+        int randomIndex;
+        do {
+            randomIndex = rand() % numQuestions; 
+        } while (selectedQuestions[randomIndex] == 1); 
+
+        printf("%s\n", bank[randomIndex].question);
+        printf("%s    ", bank[randomIndex].item1);
+        printf("%s    ", bank[randomIndex].item2);
+        printf("%s    ", bank[randomIndex].item3);
+        printf("%s    ", bank[randomIndex].item4);
+
+        int select;
+        scanf("%d", &select);
+
+        if (select == bank[randomIndex].solution) {
+            printf("맞았습니다.\n\n");
+            correctAnswers++;
+        }
+        else {
+            printf("틀렸습니다. 정답: %d\n\n", bank[randomIndex].solution);
+        }
+
+        selectedQuestions[randomIndex] = 1; 
+    }
+
+    printf("전체 문제 중에서 %d문제를 맞추었습니다.\n", correctAnswers);
+    free(selectedQuestions); 
+
+    return 0;
+}
+*/
+
+/*//after
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define SIZE 100
+
+struct QUESTION {
+    char question[SIZE];
+    char item1[SIZE];
+    char item2[SIZE];
+    char item3[SIZE];
+    char item4[SIZE];
+    int solution;
+};
+
+int main(void) {
+    struct QUESTION bank[10] = {
+        {"임베디드 장치에 가장 적합한 프로그래밍 언어는?", "1. Python", "2. Java", "3. C", "4. Javascript", 3},
+        {"서로 다른 자료형을 모을 수 있는 구조는?", "1. 배열", "2. 변수", "3. 구조체", "4. 포인터", 3},
+        {"다음 중 어떤 언어가 웹 프론트엔드 개발에 주로 사용됩니까?", "1. C++", "2. Ruby", "3. Python", "4. HTML/CSS/JavaScript", 4},
+        {"C 언어의 데이터 타입 중 정수를 저장하는 타입은 무엇입니까?", "1. float", "2. char", "3. int", "4. double", 3},
+        {"우리 태양계에서 가장 큰 행성은 무엇입니까?", "1. 지구", "2. 화성", "3. 목성", "4. 토성", 3},
+        {"가장 많은 웹 서버 소프트웨어 중 하나는 무엇입니까?", "1. Nginx", "2. Apache", "3. Tomcat", "4. IIS", 2},
+        {"컴퓨터 프로그래밍 언어 'Python'의 이름은 어떤 독자적인 주제와 관련이 있습니까?", "1. 뱀", "2. 독수리", "3. 말", "4. 고양이", 1},
+        {"가장 가까운 별은 어떤 별입니까?", "1. 태양", "2. 달", "3. 폴라리스", "4. 프록시마 켄타우리", 4},
+        {"어떤 프로그래밍 언어는 '휴먼 컴퓨터 상호 작용'의 약자로 알려져 있습니까?", "1. C", "2. COBOL", "3. HTML", "4. FORTRAN", 2},
+        {"가장 많은 사용자를 가진 소셜 미디어 플랫폼은 무엇입니까?", "1. Instagram", "2. Twitter", "3. Facebook", "4. TikTok", 3},
+    };
+
+    int numQuestions = 10;
+    int correctAnswers = 0;
+    int* selectedQuestions = (int*)malloc(numQuestions * sizeof(int));
+    for (int i = 0; i < numQuestions; i++) {
+        selectedQuestions[i] = 0;
+    }
+
+    srand(time(0));
+
+    for (int i = 0; i < numQuestions; i++) {
+        int randomIndex;
+        do {
+            randomIndex = rand() % numQuestions;
+        } while (selectedQuestions[randomIndex] == 1);
+
+        printf("%s\n", bank[randomIndex].question);
+        printf("%s    ", bank[randomIndex].item1);
+        printf("%s    ", bank[randomIndex].item2);
+        printf("%s    ", bank[randomIndex].item3);
+        printf("%s    ", bank[randomIndex].item4);
+
+        int select;
+        scanf("%d", &select);
+
+        if (select == bank[randomIndex].solution) {
+            printf("맞았습니다.\n\n");
+            correctAnswers++;
+        }
+        else {
+            printf("틀렸습니다. 정답: %d\n\n", bank[randomIndex].solution);
+        }
+
+        selectedQuestions[randomIndex] = 1;
+    }
+
+    printf("전체 문제 중에서 %d문제를 맞추었습니다.\n", correctAnswers);
+    free(selectedQuestions);
+
     return 0;
 }
 */
